@@ -27,24 +27,27 @@ $newsArticleId = REX_LINK[id=1];
 $datas = rex_sql::factory()->getArray('SELECT * FROM rex_blog ORDER BY id DESC');
 
 	if (count($datas)) {
-        foreach ($datas as $data) {       
-            $item  = $channel->addChild("item");
-            $artId = $data['id'];
-            // Ermitteln der URL des Posting-Artikels
-            $url   = rex_getUrl($newsArticleId, '', ['id' => $data['id']]);
-            $item->addChild("title", $data['title']);
-            $item->addChild("link", 'http://' . $_SERVER['HTTP_HOST'] . $url);
-            $item->addChild("guid", 'http://' . $_SERVER['HTTP_HOST'] . $url);
-            // Datum und Uhrezeit des Postings
-            $rssdate = date("D, d M Y H:i:s +0100", $data['datestamp']);
-            $item->addChild('pubDate', $data['datestamp']);
-			if ($data['headerimage'] != '' ) {
-            $item->addChild("description", '<img width="300" height="200" src="http://'.$_SERVER[HTTP_HOST].'/media/'.$data['headerimage'].'"></img><br />'.substr($data['contribution'], 0, 500) . '...');
-			} else {
-            $item->addChild("description", substr($data['contribution'], 0, 500) . '...');
+        foreach ($datas as $data) {
+			if ($data['status'] == 1 ) {
+				$item  = $channel->addChild("item");
+				$artId = $data['id'];
+				// Ermitteln der URL des Posting-Artikels
+				$url   = rex_getUrl($newsArticleId, '', ['id' => $data['id']]);
+				$item->addChild("title", $data['title']);
+				$item->addChild("link", 'http://' . $_SERVER['HTTP_HOST'] . $url);
+				$item->addChild("guid", 'http://' . $_SERVER['HTTP_HOST'] . $url);
+				// Datum und Uhrezeit des Postings
+				$rssdate = date("D, d M Y H:i:s +0100", $data['datestamp']);
+				$item->addChild('pubDate', $data['datestamp']);
+				$contribution = htmlspecialchars(trim(strip_tags(substr($data['contribution'], 0, 500))));
+				if ($data['headerimage'] != '' ) {
+					$item->addChild("description", '<img width="300" height="200" src="http://'.$_SERVER[HTTP_HOST].'/media/'.$data['headerimage'].'"></img><br />'.$contribution . '...');
+				} else {
+					$item->addChild("description", $contribution . '...');
+				}
 			}
-    }
-	    }
+		}
+	}
 
 // Ausgabe des RSS-Feeds
 echo $xml->asXML();
