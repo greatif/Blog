@@ -7,7 +7,7 @@ Zur Generierung des RSS-Feeds dient eine modifizierte Version aus den [R-Tricks]
 Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://github.com/FriendsOfREDAXO/pdfout).
 Die notwendigen PhotoSwipe-Dateien, die sich im Verzeichnis "assets" befinden, müssen z. Zt. noch manuell eingebunden werden.
 
-![Screenshot](https://raw.githubusercontent.com/greatif/blog/image_01.png)
+![blog](https://user-images.githubusercontent.com/8527203/44779535-0900a180-ab80-11e8-9732-2ae2d719da01.png)
 
 [Blog-Beispiel](https://greatif.de/blog/)
 
