@@ -7,7 +7,7 @@ A modified version of the [R-Tricks](https://friendsofredaxo.github.io/tricks/mo
 The provision of PDF files is done via the addon [PDFout](https://github.com/FriendsOfREDAXO/pdfout).
 The necessary PhotoSwipe files, which are located in the "assets" directory, currently have to be included manually.
 
-![Screenshot](https://raw.githubusercontent.com/greatif/blog/image_01.png)
+![blog](https://user-images.githubusercontent.com/8527203/44779535-0900a180-ab80-11e8-9732-2ae2d719da01.png)
 
 [blog example](https://greatif.de/blog/)
 
