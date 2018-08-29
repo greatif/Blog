@@ -1,9 +1,9 @@
 <?PHP
 
 if (rex_i18n::getLocale() != 'de_de') {
-    $file = rex_file::get(rex_path::addon('blog', 'HELP.md'));
+    $file = rex_file::get(rex_path::addon('blog', 'README.md'));
 } else {
-    $file = rex_file::get(rex_path::addon('blog', 'HELP_de_de.md'));
+    $file = rex_file::get(rex_path::addon('blog', 'README_de_de.md'));
 }
 
 $body = '<div class="markdown-body">' . rex_markdown::factory()->parse($file) . '</div>';
