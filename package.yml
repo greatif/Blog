@@ -1,0 +1,59 @@
+package: blog
+version: '1.0.0'
+author: greatif
+supportpage: https://greatif.de
+
+page:
+    title: 'Blog'
+    icon: rex-icon fa-edit
+    perm: admin
+    subpages:
+        artikel:
+            title: 'Blog-Artikel'
+            icon: rex-icon fa-pencil
+            subPath: pages/data_edit.php
+            yformTable: rex_blog
+            yformClass: blog-yform
+        module:
+            title: 'Module'
+            icon: rex-icon fa-database
+            subpages:
+                blog:
+                    title: 'Blog'
+                    icon: rex-icon fa-database
+                    subPath: pages/module_blog.php
+                blogteaser:
+                    title: 'Blog-Teaser'
+                    icon: rex-icon fa-database
+                    subPath: pages/module_blog-teaser.php
+                rss:
+                    title: 'RSS-Feed Generierung'
+                    icon: rex-icon fa-database
+                    subPath: pages/module_rss-feed.php
+        templates:
+            title: 'Templates'
+            icon: rex-icon fa-newspaper-o
+            subPath: pages/templates.php
+        css:
+            title: 'CSS'
+            icon: rex-icon fa-css3
+            subPath: pages/css.php
+        hilfe:
+            title: 'Hilfe'
+            icon: rex-icon fa-info
+            subPath: pages/hilfe.php
+
+requires:
+    packages:
+        yform: '^2.3'
+        ycom: '^2.1'
+        yrewrite: '^2.3'
+        url: '^1.0.1'
+        phpmailer: '^2.0.1'
+        cke5: '^2.1'
+        pdfout: '^1.4.2'
+    redaxo: '^5.5.0'
+
+system_plugins:
+    - auth
+    - group
