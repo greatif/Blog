@@ -37,8 +37,8 @@ $datas = rex_sql::factory()->getArray('SELECT * FROM rex_blog ORDER BY id DESC')
 				$item->addChild("link", 'http://' . $_SERVER['HTTP_HOST'] . $url);
 				$item->addChild("guid", 'http://' . $_SERVER['HTTP_HOST'] . $url);
 				// Datum und Uhrezeit des Postings
-				$rssdate = date("D, d M Y H:i:s +0100", $data['datestamp']);
-				$item->addChild('pubDate', $data['datestamp']);
+				$rssdate = date("D, d M Y H:i:s +0100", strtotime($data['datestamp']));
+				$item->addChild('pubDate', $rssdate);
 				$contribution = htmlspecialchars(trim(strip_tags(substr($data['contribution'], 0, 500))));
 				if ($data['headerimage'] != '' ) {
 					$item->addChild("description", '<img width="300" height="200" src="http://'.$_SERVER[HTTP_HOST].'/media/'.$data['headerimage'].'"></img><br />'.$contribution . '...');
