@@ -1,3 +1,7 @@
+INSERT INTO `rex_metainfo_field` (`id`, `title`, `name`, `priority`, `attributes`, `type_id`, `default`, `params`, `validate`, `callback`, `restrictions`, `createuser`, `createdate`, `updateuser`, `updatedate`)
+VALUES
+  (8,'Beschreibung','med_description',1,'',1,'','','','','','Administrator','2018-09-10 12:00:00','Administrator','2018-09-10 12:00:00');
+
 INSERT INTO `rex_yform_table` (`id`, `status`, `table_name`, `name`, `description`, `list_amount`, `list_sortfield`, `list_sortorder`, `prio`, `search`, `hidden`, `export`, `import`, `mass_deletion`, `mass_edit`, `history`)
 VALUES
   (3,1,'rex_ycom_comment','Community Kommentare','Ermöglicht Kommentare auf allen Artikeln, wenn man eingeloggt ist.',50,'id','DESC',3,1,0,0,0,1,0,0),
