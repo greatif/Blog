@@ -1,6 +1,6 @@
 <?php
 /**
- * @author kontakt[at]greatif[dot]de Joachim Doerr
+ * @author kontakt[at]greatif[dot]de
  * @package redaxo5
  * @license MIT
  */
