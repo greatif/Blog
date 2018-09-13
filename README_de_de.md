@@ -6,6 +6,7 @@ Als Editor wird [CKEditor 5](https://github.com/FriendsOfREDAXO/cke5) verwendet,
 Zur Generierung des RSS-Feeds dient eine modifizierte Version aus den [R-Tricks](https://friendsofredaxo.github.io/tricks/module/minibeispiel_rss-feed).
 Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://github.com/FriendsOfREDAXO/pdfout).
 Die notwendigen PhotoSwipe-Dateien, die sich im Verzeichnis "assets" befinden, müssen z. Zt. noch manuell eingebunden werden.
+Nach der Installation muss im URL-AddOn noch eingestellt werden, in welchem Artikel die Ausgabe des Blogs erfolgt.
 
 ![blog](https://user-images.githubusercontent.com/8527203/44779535-0900a180-ab80-11e8-9732-2ae2d719da01.png)
 
