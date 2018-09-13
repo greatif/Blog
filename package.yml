@@ -45,7 +45,7 @@ page:
 
 requires:
     packages:
-        yform: '^2.3'
+        yform: '>=2.0, <=2.3'
         ycom: '^2.1'
         yrewrite: '^2.3'
         url: '^1.0.1'
