@@ -23,85 +23,6 @@ rex_sql_table::get(rex::getTable('blog'))
     ->setPrimaryKey('id')
     ->ensure();
 
-// install yform-tables database
-rex_sql_table::get(rex::getTable('yform_table'))
-    ->ensurePrimaryIdColumn()
-    ->ensureColumn(new rex_sql_column('status', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('table_name', 'varchar(100)'))
-    ->ensureColumn(new rex_sql_column('name', 'varchar(100)'))
-    ->ensureColumn(new rex_sql_column('description', 'text'))
-    ->ensureColumn(new rex_sql_column('list_amount', 'tinyint(3) unsigned', false, '50'))
-    ->ensureColumn(new rex_sql_column('list_sortfield', 'varchar(255)', false, 'id'))
-    ->ensureColumn(new rex_sql_column('list_sortorder', 'enum(\'ASC\',\'DESC\')', false, 'ASC'))
-    ->ensureColumn(new rex_sql_column('prio', 'int(11)'))
-    ->ensureColumn(new rex_sql_column('search', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('hidden', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('export', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('import', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('mass_deletion', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('mass_edit', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('history', 'tinyint(1)'))
-    ->ensureIndex(new rex_sql_index('table_name', ['table_name'], rex_sql_index::UNIQUE))
-    ->ensure();
-
-// install yform-fields database
-rex_sql_table::get(rex::getTable('yform_field'))
-    ->ensurePrimaryIdColumn()
-    ->ensureColumn(new rex_sql_column('table_name', 'varchar(100)'))
-    ->ensureColumn(new rex_sql_column('prio', 'int(11)'))
-    ->ensureColumn(new rex_sql_column('type_id', 'varchar(100)'))
-    ->ensureColumn(new rex_sql_column('type_name', 'varchar(100)'))
-    ->ensureColumn(new rex_sql_column('list_hidden', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('search', 'tinyint(1)'))
-    ->ensureColumn(new rex_sql_column('name', 'text'))
-    ->ensureColumn(new rex_sql_column('label', 'text'))
-    ->ensureColumn(new rex_sql_column('not_required', 'text'))
-    ->ensureColumn(new rex_sql_column('options', 'text'))
-    ->ensureColumn(new rex_sql_column('multiple', 'text'))
-    ->ensureColumn(new rex_sql_column('default', 'text'))
-    ->ensureColumn(new rex_sql_column('size', 'text'))
-    ->ensureColumn(new rex_sql_column('only_empty', 'text'))
-    ->ensureColumn(new rex_sql_column('message', 'text'))
-    ->ensureColumn(new rex_sql_column('table', 'text'))
-    ->ensureColumn(new rex_sql_column('hashname', 'text'))
-    ->ensureColumn(new rex_sql_column('password_hash', 'text'))
-    ->ensureColumn(new rex_sql_column('no_db', 'text'))
-    ->ensureColumn(new rex_sql_column('password_label', 'text'))
-    ->ensureColumn(new rex_sql_column('field', 'text'))
-    ->ensureColumn(new rex_sql_column('type', 'text'))
-    ->ensureColumn(new rex_sql_column('empty_value', 'text'))
-    ->ensureColumn(new rex_sql_column('empty_option', 'text'))
-    ->ensureColumn(new rex_sql_column('max_size', 'text'))
-    ->ensureColumn(new rex_sql_column('types', 'text'))
-    ->ensureColumn(new rex_sql_column('fields', 'text'))
-    ->ensureColumn(new rex_sql_column('position', 'text'))
-    ->ensureColumn(new rex_sql_column('address', 'text'))
-    ->ensureColumn(new rex_sql_column('width', 'text'))
-    ->ensureColumn(new rex_sql_column('height', 'text'))
-    ->ensureColumn(new rex_sql_column('attributes', 'text'))
-    ->ensureColumn(new rex_sql_column('preview', 'text'))
-    ->ensureColumn(new rex_sql_column('category', 'text'))
-    ->ensureColumn(new rex_sql_column('values', 'text'))
-    ->ensureColumn(new rex_sql_column('format', 'text'))
-    ->ensureColumn(new rex_sql_column('show_value', 'text'))
-    ->ensureColumn(new rex_sql_column('html', 'text'))
-    ->ensureColumn(new rex_sql_column('notice', 'text'))
-    ->ensureColumn(new rex_sql_column('regex', 'text'))
-    ->ensureColumn(new rex_sql_column('pattern', 'text'))
-    ->ensureColumn(new rex_sql_column('current_date', 'text'))
-    ->ensureColumn(new rex_sql_column('widget', 'text'))
-    ->ensureColumn(new rex_sql_column('query', 'text'))
-    ->ensureColumn(new rex_sql_column('year_start', 'text'))
-    ->ensureColumn(new rex_sql_column('year_end', 'text'))
-    ->ensureColumn(new rex_sql_column('rules', 'text'))
-    ->ensureColumn(new rex_sql_column('nonce_key', 'text'))
-    ->ensureColumn(new rex_sql_column('nonce_referer', 'text'))
-    ->ensureColumn(new rex_sql_column('sizes', 'text'))
-    ->ensureColumn(new rex_sql_column('messages', 'text'))
-    ->ensureColumn(new rex_sql_column('rules_message', 'text'))
-    ->ensureColumn(new rex_sql_column('script', 'text'))
-    ->ensure();
-
 // install comments database
 rex_sql_table::get(rex::getTable('ycom_comment'))
     ->ensureColumn(new rex_sql_column('id', 'int(11)', false, null, 'auto_increment'))
@@ -118,32 +39,150 @@ rex_sql_table::get(rex::getTable('ycom_comment'))
     ->setPrimaryKey('id')
     ->ensure();
 
-rex_sql_table::get(rex::getTable('url_generate'))
-    ->ensureColumn(new rex_sql_column('id', 'int(11) unsigned', false, null, 'auto_increment'))
-    ->ensureColumn(new rex_sql_column('article_id', 'int(11)'))
-    ->ensureColumn(new rex_sql_column('clang_id', 'int(11)', false, '1'))
-    ->ensureColumn(new rex_sql_column('url', 'text'))
-    ->ensureColumn(new rex_sql_column('table', 'varchar(255)'))
-    ->ensureColumn(new rex_sql_column('table_parameters', 'text'))
-    ->ensureColumn(new rex_sql_column('relation_table', 'varchar(255)'))
-    ->ensureColumn(new rex_sql_column('relation_table_parameters', 'text'))
-    ->ensureColumn(new rex_sql_column('relation_insert', 'varchar(255)'))
-    ->ensureColumn(new rex_sql_column('createdate', 'int(11)'))
-    ->ensureColumn(new rex_sql_column('createuser', 'varchar(255)'))
-    ->ensureColumn(new rex_sql_column('updatedate', 'int(11)'))
-    ->ensureColumn(new rex_sql_column('updateuser', 'varchar(255)'))
-    ->setPrimaryKey('id')
-    ->ensure();
-
 // install yform data
 try {
     $sql = rex_sql::factory();
-    if (
-        sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_table') . " WHERE id=5")) <= 0
-    ) {
-        rex_sql_util::importDump($this->getPath('data.sql'));
-    }
+    rex_sql_util::importDump($this->getPath('data.sql'));
+
 } catch (rex_sql_exception $e) {
     rex_logger::logException($e);
     print rex_view::error($e->getMessage());
+}
+
+// installie Blog Modul
+$content = '';
+$search_modul_blog = 'module:blog_output';
+
+$blogmodule = rex_sql::factory();
+$blogmodule->setQuery('select * from rex_module where output LIKE "%' . $search_modul_blog . '%"');
+
+$module_id = 0;
+$module_name = '';
+foreach ($blogmodule->getArray() as $module) {
+    $module_id = $module['id'];
+    $module_name = $module['name'];
+}
+
+$yform_module_name = 'Blog';
+
+$input = rex_file::get(rex_path::addon('blog', 'module/blog_input.php'));
+$output = rex_file::get(rex_path::addon('blog', 'module/blog_output.php'));
+
+$mi = rex_sql::factory();
+$mi->setTable('rex_module');
+$mi->setValue('input', $input);
+$mi->setValue('output', $output);
+
+if ($module_name == $yform_module_name) {
+    $mi->setWhere('id="' . $module_id . '"');
+    $mi->update();
+} else {
+    $mi->setValue('name', $yform_module_name);
+    $mi->insert();
+    $module_id = (int)$mi->getLastId();
+    $module_name = $yform_module_name;
+}
+
+// install Blog-Teaser Modul
+$content = '';
+$search_modul_blogteaser = 'module:blog-teaser_output';
+
+$blogteasermodule = rex_sql::factory();
+$blogteasermodule->setQuery('select * from rex_module where output LIKE "%' . $search_modul_blogteaser . '%"');
+
+$module_id = 0;
+$module_name = '';
+foreach ($blogteasermodule->getArray() as $module) {
+    $module_id = $module['id'];
+    $module_name = $module['name'];
+}
+
+$yform_module_name = 'Blog-Teaser';
+
+$input = rex_file::get(rex_path::addon('blog', 'module/blog-teaser_input.php'));
+$output = rex_file::get(rex_path::addon('blog', 'module/blog-teaser_output.php'));
+
+$mi = rex_sql::factory();
+$mi->setTable('rex_module');
+$mi->setValue('input', $input);
+$mi->setValue('output', $output);
+
+if ($module_name == $yform_module_name) {
+    $mi->setWhere('id="' . $module_id . '"');
+    $mi->update();
+} else {
+    $mi->setValue('name', $yform_module_name);
+    $mi->insert();
+    $module_id = (int)$mi->getLastId();
+    $module_name = $yform_module_name;
+}
+
+// installie Blog RSS-Feed Modul
+$content = '';
+$search_modul_blog_rssfeed = 'module:blog-rssfeed_output';
+
+$blogrssmodule = rex_sql::factory();
+$blogrssmodule->setQuery('select * from rex_module where output LIKE "%' . $search_modul_blog_rssfeed . '%"');
+
+$module_id = 0;
+$module_name = '';
+foreach ($blogrssmodule->getArray() as $module) {
+    $module_id = $module['id'];
+    $module_name = $module['name'];
+}
+
+$yform_module_name = 'Blog - RSS-Feed';
+
+$input = rex_file::get(rex_path::addon('blog', 'module/rss-feed_input.php'));
+$output = rex_file::get(rex_path::addon('blog', 'module/rss-feed_output.php'));
+
+$mi = rex_sql::factory();
+$mi->setTable('rex_module');
+$mi->setValue('input', $input);
+$mi->setValue('output', $output);
+
+if ($module_name == $yform_module_name) {
+    $mi->setWhere('id="' . $module_id . '"');
+    $mi->update();
+} else {
+    $mi->setValue('name', $yform_module_name);
+    $mi->insert();
+    $module_id = (int)$mi->getLastId();
+    $module_name = $yform_module_name;
+}
+
+// installie RSS-Feed Template
+$content = '';
+$attributes ='{"ctype":[],"modules":{"1":{"all":"1"}},"categories":{"all":"1"}}';
+$active = '1';
+$search_template_blog_rssfeed = 'template:blog_rssfeed';
+
+$blogrsstemplate = rex_sql::factory();
+$blogrsstemplate->setQuery('select * from rex_template where content LIKE "%' . $search_template_blog_rssfeed . '%"');
+
+$template_id = 0;
+$template_name = '';
+foreach ($blogrsstemplate->getArray() as $template) {
+    $template_id = $template['id'];
+    $template_name = $template['name'];
+}
+
+$yform_template_name = 'Blog - RSS-Feed';
+
+$content = rex_file::get(rex_path::addon('blog', 'templates/template-rss.php'));
+
+$ti = rex_sql::factory();
+$ti->setTable('rex_template');
+$ti->setValue('content', $content);
+$ti->setValue('attributes', $attributes);
+$ti->setValue('active', $active);
+
+if ($template_name == $yform_template_name) {
+    $ti->setWhere('id="' . $template_id . '"');
+    $ti->update();
+} else {
+    $ti->setValue('name', $yform_template_name);
+    $ti->insert();
+    $template_id = (int)$ti->getLastId();
+    $template_name = $yform_template_name;
 }
