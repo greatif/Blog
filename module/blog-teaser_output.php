@@ -1,5 +1,7 @@
 <?php
 
+/* module:blog-teaser_output V1.0 */
+
 $blog_article_id = REX_LINK[id=1];
 $blog_url = rex_getUrl($blog_article_id);
 
