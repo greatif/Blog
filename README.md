@@ -30,7 +30,7 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 - inside the category "Blog" create an article "RSS-Feed" and assign the template "Blog - RSS-Feed"
 - inside the article "RSS-Feed" insert the module "Blog - RSS-Feed" an set it
 - inside the article of the blog insert the module "Blog" and set it
-- insite the start-article insert the module "Blog-Teaser" and set it
+- inside the start-article insert the module "Blog-Teaser" and set it
 - set in the URL-addon, in which article the output of the blog takes place
 - the necessary PhotoSwipe-files, which are in directory "assets", have currently to be includet manually
 
