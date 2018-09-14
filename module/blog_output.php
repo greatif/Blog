@@ -1,5 +1,7 @@
 <?php
 
+/* module:blog_output V1.0 */
+
 	echo '<div class="blog-rss-abo"><a href="'.rex_geturl(REX_LINK[id=1]).'"><i class="ti-rss"></i></a></div>';
 
 $newsDataId = UrlGenerator::getId();
