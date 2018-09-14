@@ -5,8 +5,6 @@ Entsprechend werden überwiegend bereits bestehende REDAXO-AddOns und -ressource
 Als Editor wird [CKEditor 5](https://github.com/FriendsOfREDAXO/cke5) verwendet, die Ausgabe der Galerie erfolgt über PhotoSwipe.
 Zur Generierung des RSS-Feeds dient eine modifizierte Version aus den [R-Tricks](https://friendsofredaxo.github.io/tricks/module/minibeispiel_rss-feed).
 Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://github.com/FriendsOfREDAXO/pdfout).
-Die notwendigen PhotoSwipe-Dateien, die sich im Verzeichnis "assets" befinden, müssen z. Zt. noch manuell eingebunden werden.
-Nach der Installation muss im URL-AddOn noch eingestellt werden, in welchem Artikel die Ausgabe des Blogs erfolgt.
 
 ![blog](https://user-images.githubusercontent.com/8527203/44779535-0900a180-ab80-11e8-9732-2ae2d719da01.png)
 
@@ -25,6 +23,17 @@ Nach der Installation muss im URL-AddOn noch eingestellt werden, in welchem Arti
 - Kommentar-Funktion
 - Artikel-Status: online, offline, Arbeitsversion
 - Teaser-Funktion
+
+## Installation
+
+- Moule und Template werden automatisch eingebunden
+- Kategorie "Blog" anlegen
+- in der Kategorie "Blog" einen zusätzlichen Artikel "RSS-Feed" anlege und das Template "Blog - RSS-Feed" zuweisen
+- im Artikel "RSS-Feed" das Modul "Blog - RSS-Feed" einfügen und einstellen
+- im Artikel des Blogs das Modul "Blog" einfügen und einstellen
+- im Startartikel das Modul "Blog-Teaser" einfügen und einstellen
+- im URL-AddOn einstellen, in welchem Artikel die Ausgabe des Blogs erfolgt
+- die notwendigen PhotoSwipe-Dateien, die sich im Verzeichnis "assets" befinden, müssen z. Zt. noch manuell eingebunden werden
 
 ## Voraussetzungen
 
