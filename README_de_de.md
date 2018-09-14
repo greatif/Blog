@@ -26,7 +26,7 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 
 ## Installation
 
-- Moule und Template werden automatisch eingebunden
+- Moule und Template werden automatisch installiert
 - Kategorie "Blog" anlegen
 - in der Kategorie "Blog" einen zusätzlichen Artikel "RSS-Feed" anlege und das Template "Blog - RSS-Feed" zuweisen
 - im Artikel "RSS-Feed" das Modul "Blog - RSS-Feed" einfügen und einstellen
