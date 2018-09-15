@@ -39,6 +39,11 @@ rex_sql_table::get(rex::getTable('ycom_comment'))
     ->setPrimaryKey('id')
     ->ensure();
 
+// add column "med_description" to table "media"
+rex_sql_table::get(rex::getTable('media'))
+    ->ensureColumn(new rex_sql_column('med_description', 'text', 'NULL'))
+    ->alter();
+
 // install yform data
 try {
     $sql = rex_sql::factory();
