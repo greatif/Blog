@@ -33,7 +33,15 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 - inside the article of the blog insert the module "Blog" and set it
 - inside the start-article insert the module "Blog-Teaser" and set it
 - set in the URL-addon, in which article the output of the blog takes place
-- the necessary PhotoSwipe-files, which are in directory "assets", have currently to be includet manually
+- include .css and .js files:
+```
+<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/blog.css') ?>">
+<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/photoswipe.css') ?>">
+
+<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/photoswipe.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/photoswipe-ui-default.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/init-gallery.js') ?>"></script>
+```
 
 ## Requirements
 
