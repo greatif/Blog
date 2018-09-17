@@ -23,6 +23,7 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 - comment function
 - article status: online, offline, working version
 - teaser funktion
+- works with [Community-Demo](https://github.com/FriendsOfREDAXO/demo_community)
 
 ## Installation
 - moules and templates are installed automatically
