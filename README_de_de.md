@@ -34,7 +34,15 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 - im Artikel des Blogs das Modul "Blog" einfügen und einstellen
 - im Startartikel das Modul "Blog-Teaser" einfügen und einstellen
 - im URL-AddOn einstellen, in welchem Artikel die Ausgabe des Blogs erfolgt
-- die notwendigen PhotoSwipe-Dateien, die sich im Verzeichnis "assets" befinden, müssen z. Zt. noch manuell eingebunden werden
+- .css und .js Dateien einbinden:
+```
+<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/blog.css') ?>">
+<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/photoswipe.css') ?>">
+
+<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/photoswipe.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/photoswipe-ui-default.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/init-gallery.js') ?>"></script>
+```
 
 ## Voraussetzungen
 
