@@ -39,9 +39,9 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 <link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/blog.css') ?>">
 <link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/photoswipe.css') ?>">
 
-<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/photoswipe.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/photoswipe-ui-default.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo rex_url::base('resources/js/photo_swipe/init-gallery.js') ?>"></script>
+<script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/photoswipe.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/photoswipe-ui-default.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/init-gallery.js') ?>"></script>
 ```
 
 ## Voraussetzungen
