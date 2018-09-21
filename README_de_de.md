@@ -44,6 +44,7 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/photoswipe-ui-default.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/init-gallery.js') ?>"></script>
 ```
+- Bootstrap einbinden
 
 ## Voraussetzungen
 
@@ -57,6 +58,7 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 - Auth-PlugIn
 - Group-PlugIn
 - PhotoSwipe
+- Bootstrap
 
 ## Unterstützt
 - [LazyLoad-AddOn](https://github.com/eaCe/lazyload)
