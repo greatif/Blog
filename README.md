@@ -44,6 +44,7 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/init-gallery.js') ?>"></script>
 ```
 - include Bootstrap
+- include Font Awesome
 
 ## Requirements
 
@@ -58,6 +59,7 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 - Group-PlugIn
 - PhotoSwipe
 - Bootstrap
+- Font Awesome
 
 ## Support
 - [LazyLoad addon](https://github.com/eaCe/lazyload)
