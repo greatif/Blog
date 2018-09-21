@@ -45,6 +45,7 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/init-gallery.js') ?>"></script>
 ```
 - Bootstrap einbinden
+- Font Awesome einbinden
 
 ## Voraussetzungen
 
@@ -59,6 +60,7 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 - Group-PlugIn
 - PhotoSwipe
 - Bootstrap
+- Font Awesome
 
 ## Unterstützt
 - [LazyLoad-AddOn](https://github.com/eaCe/lazyload)
