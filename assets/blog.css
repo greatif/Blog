@@ -150,3 +150,194 @@ overflow: hidden;
 	-ms-transition: all 1s ease;
 	transition: all 1s ease;
 }
+
+.btn i,
+.navbar .navbar-nav > li > a.btn i {
+    margin-right: 5px; }
+.btn.btn-icon,
+.navbar .navbar-nav > li > a.btn.btn-icon {
+    border-radius: 25px;
+    padding: 6px 11px; }
+.btn.btn-icon i,
+.navbar .navbar-nav > li > a.btn.btn-icon i {
+    margin-right: 0px; }
+
+.btn-facebook {
+  border-color: #3b5998;
+  color: #3b5998; }
+.btn-facebook:hover, .btn-facebook:focus, .btn-facebook:active, .btn-facebook.active, .open > .btn-facebook.dropdown-toggle {
+  background-color: #3b5998;
+  border-color: #3b5998;
+  color: rgba(255, 255, 255, 0.7); }
+.btn-facebook:disabled, .btn-facebook[disabled], .btn-facebook.disabled {
+  background-color: transparent;
+  border-color: #3b5998; }
+.btn-facebook.btn-fill {
+  color: #FFFFFF;
+  background-color: #3b5998;
+  opacity: 0.8; }
+.btn-facebook.btn-fill:hover, .btn-facebook.btn-fill:focus, .btn-facebook.btn-fill:active, .btn-facebook.btn-fill.active, .open > .btn-facebook.btn-fill.dropdown-toggle {
+  background-color: #3b5998;
+  border-color: #3b5998;
+  color: #FFFFFF;
+  opacity: 1; }
+.btn-facebook.btn-simple {
+  color: #3b5998;
+  opacity: 0.8; }
+.btn-facebook.btn-simple:hover, .btn-facebook.btn-simple:focus, .btn-facebook.btn-simple:active, .btn-facebook.btn-simple.active, .open > .btn-facebook.btn-simple.dropdown-toggle {
+  background-color: transparent;
+  color: #3b5998;
+  opacity: 1; }
+.btn-facebook.btn-simple:hover i, .btn-facebook.btn-simple:focus i, .btn-facebook.btn-simple:active i, .btn-facebook.btn-simple.active i, .open > .btn-facebook.btn-simple.dropdown-toggle i {
+  color: #3b5998;
+  opacity: 1; }
+
+.btn-twitter {
+  border-color: #55acee;
+  color: #55acee; }
+.btn-twitter:hover, .btn-twitter:focus, .btn-twitter:active, .btn-twitter.active, .open > .btn-twitter.dropdown-toggle {
+  background-color: #55acee;
+  border-color: #55acee;
+  color: rgba(255, 255, 255, 0.7); }
+.btn-twitter:disabled, .btn-twitter[disabled], .btn-twitter.disabled {
+  background-color: transparent;
+  border-color: #55acee; }
+.btn-twitter.btn-fill {
+  color: #FFFFFF;
+  background-color: #55acee;
+  opacity: 0.8; }
+.btn-twitter.btn-fill:hover, .btn-twitter.btn-fill:focus, .btn-twitter.btn-fill:active, .btn-twitter.btn-fill.active, .open > .btn-twitter.btn-fill.dropdown-toggle {
+  background-color: #55acee;
+  border-color: #55acee;
+  color: #FFFFFF;
+  opacity: 1; }
+.btn-twitter.btn-simple {
+  color: #55acee;
+  opacity: 0.8; }
+.btn-twitter.btn-simple:hover, .btn-twitter.btn-simple:focus, .btn-twitter.btn-simple:active, .btn-twitter.btn-simple.active, .open > .btn-twitter.btn-simple.dropdown-toggle {
+  background-color: transparent;
+  color: #55acee;
+  opacity: 1; }
+.btn-twitter.btn-simple:hover i, .btn-twitter.btn-simple:focus i, .btn-twitter.btn-simple:active i, .btn-twitter.btn-simple.active i, .open > .btn-twitter.btn-simple.dropdown-toggle i {
+  color: #55acee;
+  opacity: 1; }
+
+.btn-pinterest {
+  border-color: #cc2127;
+  color: #cc2127; }
+.btn-pinterest:hover, .btn-pinterest:focus, .btn-pinterest:active, .btn-pinterest.active, .open > .btn-pinterest.dropdown-toggle {
+  background-color: #cc2127;
+  border-color: #cc2127;
+  color: rgba(255, 255, 255, 0.7); }
+.btn-pinterest:disabled, .btn-pinterest[disabled], .btn-pinterest.disabled {
+  background-color: transparent;
+  border-color: #cc2127; }
+.btn-pinterest.btn-fill {
+  color: #FFFFFF;
+  background-color: #cc2127;
+  opacity: 0.8; }
+.btn-pinterest.btn-fill:hover, .btn-pinterest.btn-fill:focus, .btn-pinterest.btn-fill:active, .btn-pinterest.btn-fill.active, .open > .btn-pinterest.btn-fill.dropdown-toggle {
+  background-color: #cc2127;
+  border-color: #cc2127;
+  color: #FFFFFF;
+  opacity: 1; }
+.btn-pinterest.btn-simple {
+  color: #cc2127;
+  opacity: 0.8; }
+.btn-pinterest.btn-simple:hover, .btn-pinterest.btn-simple:focus, .btn-pinterest.btn-simple:active, .btn-pinterest.btn-simple.active, .open > .btn-pinterest.btn-simple.dropdown-toggle {
+  background-color: transparent;
+  color: #cc2127;
+  opacity: 1; }
+.btn-pinterest.btn-simple:hover i, .btn-pinterest.btn-simple:focus i, .btn-pinterest.btn-simple:active i, .btn-pinterest.btn-simple.active i, .open > .btn-pinterest.btn-simple.dropdown-toggle i {
+  color: #cc2127;
+  opacity: 1; }
+
+.btn-google {
+  border-color: #dd4b39;
+  color: #dd4b39; }
+.btn-google:hover, .btn-google:focus, .btn-google:active, .btn-google.active, .open > .btn-google.dropdown-toggle {
+  background-color: #dd4b39;
+  border-color: #dd4b39;
+  color: rgba(255, 255, 255, 0.7); }
+.btn-google:disabled, .btn-google[disabled], .btn-google.disabled {
+  background-color: transparent;
+  border-color: #dd4b39; }
+.btn-google.btn-fill {
+  color: #FFFFFF;
+  background-color: #dd4b39;
+  opacity: 0.8; }
+.btn-google.btn-fill:hover, .btn-google.btn-fill:focus, .btn-google.btn-fill:active, .btn-google.btn-fill.active, .open > .btn-google.btn-fill.dropdown-toggle {
+  background-color: #dd4b39;
+  border-color: #dd4b39;
+  color: #FFFFFF;
+  opacity: 1; }
+.btn-google.btn-simple {
+  color: #dd4b39;
+  opacity: 0.8; }
+.btn-google.btn-simple:hover, .btn-google.btn-simple:focus, .btn-google.btn-simple:active, .btn-google.btn-simple.active, .open > .btn-google.btn-simple.dropdown-toggle {
+  background-color: transparent;
+  color: #dd4b39;
+  opacity: 1; }
+.btn-google.btn-simple:hover i, .btn-google.btn-simple:focus i, .btn-google.btn-simple:active i, .btn-google.btn-simple.active i, .open > .btn-google.btn-simple.dropdown-toggle i {
+  color: #dd4b39;
+  opacity: 1; }
+  
+.btn-linkedin {
+  border-color: #0976b4;
+  color: #0976b4; }
+.btn-linkedin:hover, .btn-linkedin:focus, .btn-linkedin:active, .btn-linkedin.active, .open > .btn-linkedin.dropdown-toggle {
+  background-color: #0976b4;
+  border-color: #0976b4;
+  color: rgba(255, 255, 255, 0.7); }
+.btn-linkedin:disabled, .btn-linkedin[disabled], .btn-linkedin.disabled {
+  background-color: transparent;
+  border-color: #0976b4; }
+.btn-linkedin.btn-fill {
+  color: #FFFFFF;
+  background-color: #0976b4;
+  opacity: 0.8; }
+.btn-linkedin.btn-fill:hover, .btn-linkedin.btn-fill:focus, .btn-linkedin.btn-fill:active, .btn-linkedin.btn-fill.active, .open > .btn-linkedin.btn-fill.dropdown-toggle {
+  background-color: #0976b4;
+  border-color: #0976b4;
+  color: #FFFFFF;
+  opacity: 1; }
+.btn-linkedin.btn-simple {
+  color: #0976b4;
+  opacity: 0.8; }
+.btn-linkedin.btn-simple:hover, .btn-linkedin.btn-simple:focus, .btn-linkedin.btn-simple:active, .btn-linkedin.btn-simple.active, .open > .btn-linkedin.btn-simple.dropdown-toggle {
+  background-color: transparent;
+  color: #0976b4;
+  opacity: 1; }
+.btn-linkedin.btn-simple:hover i, .btn-linkedin.btn-simple:focus i, .btn-linkedin.btn-simple:active i, .btn-linkedin.btn-simple.active i, .open > .btn-linkedin.btn-simple.dropdown-toggle i {
+  color: #0976b4;
+  opacity: 1; }
+  
+  .btn-xing {
+  border-color: #333333;
+  color: #333333; }
+.btn-xing:hover, .btn-xing:focus, .btn-xing:active, .btn-xing.active, .open > .btn-xing.dropdown-toggle {
+  background-color: #333333;
+  border-color: #333333;
+  color: rgba(255, 255, 255, 0.7); }
+.btn-xing:disabled, .btn-xing[disabled], .btn-xing.disabled {
+  background-color: transparent;
+  border-color: #333333; }
+.btn-xing.btn-fill {
+  color: #FFFFFF;
+  background-color: #333333;
+  opacity: 0.8; }
+.btn-xing.btn-fill:hover, .btn-xing.btn-fill:focus, .btn-xing.btn-fill:active, .btn-xing.btn-fill.active, .open > .btn-xing.btn-fill.dropdown-toggle {
+  background-color: #333333;
+  border-color: #333333;
+  color: #FFFFFF;
+  opacity: 1; }
+.btn-xing.btn-simple {
+  color: #333333;
+  opacity: 0.8; }
+.btn-xing.btn-simple:hover, .btn-xing.btn-simple:focus, .btn-xing.btn-simple:active, .btn-xing.btn-simple.active, .open > .btn-xing.btn-simple.dropdown-toggle {
+  background-color: transparent;
+  color: #333333;
+  opacity: 1; }
+.btn-xing.btn-simple:hover i, .btn-xing.btn-simple:focus i, .btn-xing.btn-simple:active i, .btn-xing.btn-simple.active i, .open > .btn-xing.btn-simple.dropdown-toggle i {
+  color: #333333;
+  opacity: 1; }
