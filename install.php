@@ -44,14 +44,70 @@ rex_sql_table::get(rex::getTable('media'))
     ->ensureColumn(new rex_sql_column('med_description', 'text', 'NULL'))
     ->alter();
 
-// install yform data
-try {
-    $sql = rex_sql::factory();
-    rex_sql_util::importDump($this->getPath('data.sql'));
-
-} catch (rex_sql_exception $e) {
-    rex_logger::logException($e);
-    print rex_view::error($e->getMessage());
+// install data entries
+$sql = rex_sql::factory();
+if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('metainfo_field') . " WHERE title='Beschreibung'")) <= 0) {
+    try {
+        $sql = rex_sql::factory();
+        rex_sql_util::importDump($this->getPath('dump/metainfo_field.sql'));
+    } catch (rex_sql_exception $e) {
+        rex_logger::logException($e);
+        print rex_view::error($e->getMessage());
+    }
+}
+if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_table') . " WHERE table_name='rex_blog'")) <= 0) {
+    try {
+        $sql = rex_sql::factory();
+        rex_sql_util::importDump($this->getPath('dump/yform_table_blog.sql'));
+    } catch (rex_sql_exception $e) {
+        rex_logger::logException($e);
+        print rex_view::error($e->getMessage());
+    }
+}
+if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_table') . " WHERE table_name='rex_ycom_comment'")) <= 0) {
+    try {
+        $sql = rex_sql::factory();
+        rex_sql_util::importDump($this->getPath('dump/yform_table_ycom_comment.sql'));
+    } catch (rex_sql_exception $e) {
+        rex_logger::logException($e);
+        print rex_view::error($e->getMessage());
+    }
+}
+if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " WHERE table_name='rex_blog'")) <= 0) {
+    try {
+        $sql = rex_sql::factory();
+        rex_sql_util::importDump($this->getPath('dump/yform_field_blog.sql'));
+    } catch (rex_sql_exception $e) {
+        rex_logger::logException($e);
+        print rex_view::error($e->getMessage());
+    }
+}
+if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " WHERE table_name='rex_ycom_comment'")) <= 5) {
+    try {
+        $sql = rex_sql::factory();
+        rex_sql_util::importDump($this->getPath('dump/yform_field_ycom_comment_complete.sql'));
+    } catch (rex_sql_exception $e) {
+        rex_logger::logException($e);
+        print rex_view::error($e->getMessage());
+    }
+}
+if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " WHERE table_name='rex_ycom_comment'")) >= 6 AND sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " WHERE table_name='rex_ycom_comment'")) <= 10) {
+    try {
+        $sql = rex_sql::factory();
+        rex_sql_util::importDump($this->getPath('dump/yform_field_ycom_comment_extension.sql'));
+    } catch (rex_sql_exception $e) {
+        rex_logger::logException($e);
+        print rex_view::error($e->getMessage());
+    }
+}
+if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('url_generate') . " WHERE rex_url_generate.table='1_xxx_rex_blog'")) <= 0) {
+    try {
+        $sql = rex_sql::factory();
+        rex_sql_util::importDump($this->getPath('dump/url_generate.sql'));
+    } catch (rex_sql_exception $e) {
+        rex_logger::logException($e);
+        print rex_view::error($e->getMessage());
+    }
 }
 
 // installie Blog Modul
