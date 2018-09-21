@@ -37,13 +37,13 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 ```
 <link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/blog.css') ?>">
 <link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/photoswipe.css') ?>">
-<link rel="stylesheet" href="<?php echo rex_url::base('assets/addons/blog/bootstrap.min.css') ?>">
-
+```
+```
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/photoswipe.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/photoswipe-ui-default.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo rex_url::base('assets/addons/blog/init-gallery.js') ?>"></script>
 ```
-
+- include Bootstrap
 
 ## Requirements
 
@@ -57,6 +57,7 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 - Auth-PlugIn
 - Group-PlugIn
 - PhotoSwipe
+- Bootstrap
 
 ## Support
 - [LazyLoad addon](https://github.com/eaCe/lazyload)
