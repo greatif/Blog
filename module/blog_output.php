@@ -257,7 +257,7 @@ if ($newsDataId > 0) {
 
 		$yform->setActionField('db', array('rex_ycom_comment'));
 		// ggf. Kommentar auch an Admin senden:
-		   $yform->setActionField('email', array('noreply@greatif.de', 'greatif@live.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
+		   $yform->setActionField('email', array('noreply@greatif.de', 'kontakt@greatif.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
 		$yform->setActionField('showtext', array("Kommentar wurde hinzugefügt.",'<div class="alert alert-success">',"</div>","1"));
 		$kommentare .= $yform->getForm();
 	}
@@ -356,27 +356,41 @@ if ($newsDataId > 0) {
 		$yform->setValueField('hidden', array("stamp", date("YmdHis")));
 
 		$yform->setValueField('fieldset', array("kommentar", "Kommentar schreiben"));
-		$yform->setValueField('html', array("headline", "<b><i>* Pflichtangaben</i></b><hr>"));
-		
+		$yform->setValueField('html', array("pflichtangaben", "<b><i>* Pflichtangaben</i></b><br /><br />"));
+
+		$yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-12 col-md-12" style="padding: 5px;">'));			
+		$yform->setValueField('textarea', array("comment","#placeholder:Kommentar schreiben","Kommentar: *"));
+		$yform->setValueField('html', array('closediv','closeDIV','</div>'));
+		$yform->setValidateField('empty', array("comment","Bitte Kommentar schreiben!"));
+
+		$yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-6 col-md-3" style="padding: 5px;">'));		
 		$yform->setValueField('text', array("vorname","#placeholder:Vorname","Vorname: *"));
+		$yform->setValueField('html', array('closediv','closeDIV','</div>'));
 		$yform->setValidateField('empty', array("vorname","Bitte Vorname eingeben!"));
 
+		$yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-6 col-md-3" style="padding: 5px;">'));
 		$yform->setValueField('text', array("nachname","#placeholder:Nachname","Nachname: *"));
+		$yform->setValueField('html', array('closediv','closeDIV','</div>'));
 		$yform->setValidateField('empty', array("nachname","Bitte Nachname eingeben!"));
 
+		$yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-6 col-md-3" style="padding: 5px;">'));
 		$yform->setValueField('text', array("emailadresse","#placeholder:wird nicht veröffentlicht","E-Mail-Adresse: *"));
+		$yform->setValueField('html', array('closediv','closeDIV','</div>'));
 		$yform->setValidateField('empty', array("emailadresse","Bitte Email-Adresse angeben!"));			
 		$yform->setValidateField('email', array("emailadresse","Bitte eine korrekte Email-Adresse angeben!"));		
 
-		$yform->setValueField('text', array("webseite","#placeholder:ohne http://","Webseite"));		
-		
-		$yform->setValueField('textarea', array("comment","#placeholder:Kommentar schreiben","Kommentar: *"));
-		$yform->setValidateField('empty', array("comment","Bitte Kommentar schreiben!"));
+		$yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-6 col-md-3" style="padding: 5px;">'));
+		$yform->setValueField('text', array("webseite","#placeholder:ohne http://","Webseite"));
+		$yform->setValueField('html', array('closediv','closeDIV','</div>'));		
 
-		$yform->setValueField('checkbox', array('checkbox_dsgvo','Ich habe die <a href="'.$datenschutz_url.'" target="_blank">Datenschutzerklärung</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben und Daten zur Beantwortung meiner Anfrage elektronisch erhoben und gespeichert werden.','0,1','0','no_db'));
+		$yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-12 col-md-12" style="padding: 5px;">'));
+		$yform->setValueField('checkbox', array('checkbox_dsgvo','Ich habe die <a href="'.$datenschutz_url.'" target="_blank">Datenschutzerklärung</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben und Daten elektronisch erhoben und gespeichert werden.','0,1','0','no_db'));
+		$yform->setValueField('html', array('closediv','closeDIV','</div>'));
 		$yform->setValidateField('empty', array('checkbox_dsgvo','Bitte bestätigen Sie, dass Sie die Datenschutzerklärung zur Kenntnis genommen haben und stimmen Sie der elektronischen Verwendung Ihrer Daten zur Beantwortung Ihrer Anfrage zu.'));
 
-		$yform->setValueField('captcha', array("Bitte Sicherheitscode eingeben","Falscher Sicherheitscode", rex_getUrl($newsArticleId, '', ['id' => $data['id']])));		
+		$yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-12 col-md-12" style="padding: 5px;">'));
+		$yform->setValueField('captcha', array("Bitte Sicherheitscode eingeben","Falscher Sicherheitscode", rex_getUrl($newsArticleId, '', ['id' => $data['id']])));
+		$yform->setValueField('html', array('closediv','closeDIV','</div>'));		
 
 		// Spamschutz
 		// function "yform_validate_timer" in /addons/project/boot.php
@@ -388,7 +402,7 @@ if ($newsDataId > 0) {
 		$yform->setActionField('db', array('rex_ycom_comment'));
 		
 		// ggf. Kommentar auch an Admin senden:
-		   $yform->setActionField('email', array('noreply@greatif.de', 'greatif@live.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
+		   $yform->setActionField('email', array('noreply@greatif.de', 'kontakt@greatif.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
 
 		$yform->setActionField('showtext', array("Ihr Kommentar wurde gespeichert und wird nach Überprüfung veröffentlicht.",'<div class="alert alert-success">',"</div>","1"));
 		$kommentare .= $yform->getForm();
