@@ -1,7 +1,7 @@
 <?php
 
-$moduleInput = rex_file::get(rex_path::addon('blog') . "module/blog_input.php");
-$moduleOutput = rex_file::get(rex_path::addon('blog') . "module/blog_output.php");
+$moduleInput = rex_file::get(rex_path::addon('gblog') . "module/blog_input.php");
+$moduleOutput = rex_file::get(rex_path::addon('gblog') . "module/blog_output.php");
 
 $content = '
 <p class="headline">' . rex_i18n::msg('blog_module_input') . '</p><pre class="rex-code"><code>' . blog_parsedown::highlight($moduleInput) . '</code></pre>
