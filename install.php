@@ -23,6 +23,43 @@ rex_sql_table::get(rex::getTable('blog'))
     ->setPrimaryKey('id')
     ->ensure();
 
+rex_sql_table::get(rex::getTable('yform_field'))
+    ->ensurePrimaryIdColumn()
+    ->ensureColumn(new rex_sql_column('table_name', 'varchar(100)'))
+    ->ensureColumn(new rex_sql_column('prio', 'int(11)'))
+    ->ensureColumn(new rex_sql_column('type_id', 'varchar(100)'))
+    ->ensureColumn(new rex_sql_column('type_name', 'varchar(100)'))
+    ->ensureColumn(new rex_sql_column('list_hidden', 'tinyint(1)'))
+    ->ensureColumn(new rex_sql_column('search', 'tinyint(1)'))
+    ->ensureColumn(new rex_sql_column('name', 'text'))
+    ->ensureColumn(new rex_sql_column('label', 'text'))
+    ->ensureColumn(new rex_sql_column('options', 'text'))
+    ->ensureColumn(new rex_sql_column('multiple', 'text'))
+    ->ensureColumn(new rex_sql_column('default', 'text'))
+    ->ensureColumn(new rex_sql_column('size', 'text'))
+    ->ensureColumn(new rex_sql_column('only_empty', 'text'))
+    ->ensureColumn(new rex_sql_column('message', 'text'))
+    ->ensureColumn(new rex_sql_column('table', 'text'))
+    ->ensureColumn(new rex_sql_column('field', 'text'))
+    ->ensureColumn(new rex_sql_column('type', 'text'))
+    ->ensureColumn(new rex_sql_column('empty_option', 'text'))
+    ->ensureColumn(new rex_sql_column('types', 'text'))
+    ->ensureColumn(new rex_sql_column('fields', 'text'))
+    ->ensureColumn(new rex_sql_column('address', 'text'))
+    ->ensureColumn(new rex_sql_column('width', 'text'))
+    ->ensureColumn(new rex_sql_column('height', 'text'))
+    ->ensureColumn(new rex_sql_column('attributes', 'text'))
+    ->ensureColumn(new rex_sql_column('preview', 'text'))
+    ->ensureColumn(new rex_sql_column('category', 'text'))
+    ->ensureColumn(new rex_sql_column('values', 'text'))
+    ->ensureColumn(new rex_sql_column('format', 'text'))
+    ->ensureColumn(new rex_sql_column('show_value', 'text'))
+    ->ensureColumn(new rex_sql_column('html', 'text'))
+    ->ensureColumn(new rex_sql_column('notice', 'text'))
+    ->ensureColumn(new rex_sql_column('rules', 'text'))
+    ->ensureColumn(new rex_sql_column('script', 'text'))
+    ->ensure();
+
 // install comments database
 rex_sql_table::get(rex::getTable('ycom_comment'))
     ->ensureColumn(new rex_sql_column('id', 'int(11)', false, null, 'auto_increment'))
@@ -82,7 +119,6 @@ if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " W
         print rex_view::error($e->getMessage());
     }
 }
-if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " WHERE table_name='rex_ycom_comment'")) <= 5) {
     try {
         $sql = rex_sql::factory();
         rex_sql_util::importDump($this->getPath('dump/yform_field_ycom_comment_complete.sql'));
@@ -90,16 +126,7 @@ if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " W
         rex_logger::logException($e);
         print rex_view::error($e->getMessage());
     }
-}
-if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " WHERE table_name='rex_ycom_comment'")) >= 6 AND sizeof($sql->getArray("SELECT id FROM " . rex::getTable('yform_field') . " WHERE table_name='rex_ycom_comment'")) <= 10) {
-    try {
-        $sql = rex_sql::factory();
-        rex_sql_util::importDump($this->getPath('dump/yform_field_ycom_comment_extension.sql'));
-    } catch (rex_sql_exception $e) {
-        rex_logger::logException($e);
-        print rex_view::error($e->getMessage());
-    }
-}
+
 if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('url_generate') . " WHERE rex_url_generate.table='1_xxx_rex_blog'")) <= 0) {
     try {
         $sql = rex_sql::factory();
@@ -126,8 +153,8 @@ foreach ($blogmodule->getArray() as $module) {
 
 $yform_module_name = 'Blog';
 
-$input = rex_file::get(rex_path::addon('blog', 'module/blog_input.php'));
-$output = rex_file::get(rex_path::addon('blog', 'module/blog_output.php'));
+$input = rex_file::get(rex_path::addon('gblog', 'module/blog_input.php'));
+$output = rex_file::get(rex_path::addon('gblog', 'module/blog_output.php'));
 
 $mi = rex_sql::factory();
 $mi->setTable('rex_module');
@@ -160,8 +187,8 @@ foreach ($blogteasermodule->getArray() as $module) {
 
 $yform_module_name = 'Blog-Teaser';
 
-$input = rex_file::get(rex_path::addon('blog', 'module/blog-teaser_input.php'));
-$output = rex_file::get(rex_path::addon('blog', 'module/blog-teaser_output.php'));
+$input = rex_file::get(rex_path::addon('gblog', 'module/blog-teaser_input.php'));
+$output = rex_file::get(rex_path::addon('gblog', 'module/blog-teaser_output.php'));
 
 $mi = rex_sql::factory();
 $mi->setTable('rex_module');
@@ -194,8 +221,8 @@ foreach ($blogrssmodule->getArray() as $module) {
 
 $yform_module_name = 'Blog - RSS-Feed';
 
-$input = rex_file::get(rex_path::addon('blog', 'module/rss-feed_input.php'));
-$output = rex_file::get(rex_path::addon('blog', 'module/rss-feed_output.php'));
+$input = rex_file::get(rex_path::addon('gblog', 'module/rss-feed_input.php'));
+$output = rex_file::get(rex_path::addon('gblog', 'module/rss-feed_output.php'));
 
 $mi = rex_sql::factory();
 $mi->setTable('rex_module');
@@ -230,7 +257,7 @@ foreach ($blogrsstemplate->getArray() as $template) {
 
 $yform_template_name = 'Blog - RSS-Feed';
 
-$content = rex_file::get(rex_path::addon('blog', 'templates/template-rss.php'));
+$content = rex_file::get(rex_path::addon('gblog', 'templates/template-rss.php'));
 
 $ti = rex_sql::factory();
 $ti->setTable('rex_template');
