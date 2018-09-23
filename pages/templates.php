@@ -1,6 +1,6 @@
 <?php
 
-$css = rex_file::get(rex_path::addon('blog') . "templates/template-rss.php");
+$css = rex_file::get(rex_path::addon('gblog') . "templates/template-rss.php");
 
 $content = '
 <p class="headline">' . rex_i18n::msg('blog_template-rss') . '</p><pre class="rex-code"><code>' . blog_parsedown::highlight($css) . '</code></pre>';
