@@ -173,8 +173,8 @@ foreach ($blogmodule->getArray() as $module) {
 
 $yform_module_name = 'Blog';
 
-$input = rex_file::get(rex_path::addon('blog', 'module/blog_input.php'));
-$output = rex_file::get(rex_path::addon('blog', 'module/blog_output.php'));
+$input = rex_file::get(rex_path::addon('gblog', 'module/blog_input.php'));
+$output = rex_file::get(rex_path::addon('gblog', 'module/blog_output.php'));
 
 $mi = rex_sql::factory();
 $mi->setTable('rex_module');
@@ -207,8 +207,8 @@ foreach ($blogteasermodule->getArray() as $module) {
 
 $yform_module_name = 'Blog-Teaser';
 
-$input = rex_file::get(rex_path::addon('blog', 'module/blog-teaser_input.php'));
-$output = rex_file::get(rex_path::addon('blog', 'module/blog-teaser_output.php'));
+$input = rex_file::get(rex_path::addon('gblog', 'module/blog-teaser_input.php'));
+$output = rex_file::get(rex_path::addon('gblog', 'module/blog-teaser_output.php'));
 
 $mi = rex_sql::factory();
 $mi->setTable('rex_module');
@@ -241,8 +241,8 @@ foreach ($blogrssmodule->getArray() as $module) {
 
 $yform_module_name = 'Blog - RSS-Feed';
 
-$input = rex_file::get(rex_path::addon('blog', 'module/rss-feed_input.php'));
-$output = rex_file::get(rex_path::addon('blog', 'module/rss-feed_output.php'));
+$input = rex_file::get(rex_path::addon('gblog', 'module/rss-feed_input.php'));
+$output = rex_file::get(rex_path::addon('gblog', 'module/rss-feed_output.php'));
 
 $mi = rex_sql::factory();
 $mi->setTable('rex_module');
@@ -277,7 +277,7 @@ foreach ($blogrsstemplate->getArray() as $template) {
 
 $yform_template_name = 'Blog - RSS-Feed';
 
-$content = rex_file::get(rex_path::addon('blog', 'templates/template-rss.php'));
+$content = rex_file::get(rex_path::addon('gblog', 'templates/template-rss.php'));
 
 $ti = rex_sql::factory();
 $ti->setTable('rex_template');
