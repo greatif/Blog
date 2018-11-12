@@ -50,7 +50,7 @@ requires:
         yrewrite: '^2.3'
         url: '^1.0.1'
         phpmailer: '^2.0.1'
-        cke5: '^2.1'
+        cke5: '>=2.1'
         pdfout: '^1.4.2'
     redaxo: '^5.5.0'
 
