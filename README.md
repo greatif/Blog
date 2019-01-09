@@ -22,7 +22,8 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 - PDF output
 - comment function
 - article status: online, offline, working version
-- teaser funktion
+- teaser function
+- backup-function
 - works with [Community-Demo](https://github.com/FriendsOfREDAXO/demo_community)
 
 ## Installation
