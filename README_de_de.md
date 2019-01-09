@@ -23,6 +23,7 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 - Kommentar-Funktion
 - Artikel-Status: online, offline, Arbeitsversion
 - Teaser-Funktion
+- Backup-Funktion
 - funktioniert mit der [Community-Demo](https://github.com/FriendsOfREDAXO/demo_community)
 
 ## Installation
