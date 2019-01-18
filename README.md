@@ -46,6 +46,7 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 ```
 - include Bootstrap
 - include Font Awesome
+- clear REDAXO-Cache after installation
 
 ## Requirements
 
