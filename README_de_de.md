@@ -47,6 +47,7 @@ Die Bereitstellung von PDF-Dateien erfolgt über das AddOn [PDFout](https://gith
 ```
 - Bootstrap einbinden
 - Font Awesome einbinden
+- REDAXO-Cache nach der Installation löschen
 
 ## Voraussetzungen
 
