@@ -2,3 +2,7 @@ blog_module_input = Eingabe
 blog_module_output = Ausgabe
 blog_template-rss = Template für den Artikel mit dem Modul zur RSS-Feed Generierung
 blog_css = CSS
+blog_import = Blog-Artikel importieren
+blog_import_backup-file = SQL-Backup-Datei auswählen
+blog_import_backup-file_button = Backup importieren
+blog_import_backup-file_proceed = Daten werden nun importiert
