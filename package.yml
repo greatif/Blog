@@ -1,5 +1,5 @@
 package: gblog
-version: '1.0.0'
+version: '1.1.0'
 author: greatif
 supportpage: https://greatif.de
 
@@ -40,8 +40,12 @@ page:
             subPath: pages/css.php
         export:
             title: 'Export'
-            icon: rex-icon fa-download
+            icon: rex-icon fa-upload
             subPath: pages/export.php
+        import:
+            title: 'Import'
+            icon: rex-icon fa-download
+            subPath: pages/import.php
         hilfe:
             title: 'Hilfe'
             icon: rex-icon fa-info
@@ -49,7 +53,7 @@ page:
 
 requires:
     packages:
-        yform: '>=2.0, <=2.3'
+        yform: '>=2.0'
         ycom: '^2.1'
         yrewrite: '^2.3'
         url: '^1.0.1'
