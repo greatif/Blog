@@ -23,7 +23,7 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 - comment function
 - article status: online, offline, working version
 - teaser function
-- backup-function
+- export/import function for blog articles
 - works with [Community-Demo](https://github.com/FriendsOfREDAXO/demo_community)
 
 ## Installation
@@ -46,7 +46,6 @@ The provision of PDF files is done via the addon [PDFout](https://github.com/Fri
 ```
 - include Bootstrap
 - include Font Awesome
-- clear REDAXO-Cache after installation
 
 ## Requirements
 
