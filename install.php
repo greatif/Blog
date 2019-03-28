@@ -40,7 +40,7 @@ if (sizeof($sql->getArray("SELECT id FROM " . rex::getTable('url_generate') . " 
     }
 }
 
-// installie Blog Modul
+// install Blog Modul
 $content = '';
 $search_modul_blog = 'module:blog_output';
 
@@ -108,7 +108,7 @@ if ($module_name == $yform_module_name) {
     $module_name = $yform_module_name;
 }
 
-// installie Blog RSS-Feed Modul
+// install Blog RSS-Feed Modul
 $content = '';
 $search_modul_blog_rssfeed = 'module:blog-rssfeed_output';
 
@@ -142,7 +142,7 @@ if ($module_name == $yform_module_name) {
     $module_name = $yform_module_name;
 }
 
-// installie RSS-Feed Template
+// install RSS-Feed Template
 $content = '';
 $attributes ='{"ctype":[],"modules":{"1":{"all":"1"}},"categories":{"all":"1"}}';
 $active = '1';
