@@ -2,6 +2,8 @@
 
 /* module:blog_output V1.0 */
 
+setlocale(LC_TIME, "de_DE.utf8");
+
 	echo '<div class="blog-rss-abo"><a href="'.rex_geturl(REX_LINK[id=1]).'"><i class="ti-rss"></i></a></div>';
 
 $newsDataId = UrlGenerator::getId();
@@ -20,7 +22,7 @@ if ($newsDataId > 0) {
     $datas = rex_sql::factory()->getArray('SELECT * FROM rex_blog WHERE id = ? AND status = 1 OR status = 2', [$newsDataId]);
     if (count($datas)) {
         $data = current($datas);
-		$datumneu = new DateTime($data['datestamp']);
+		$datumneu = rex_formatter::format($data['datestamp'],'strftime','%A, %d.%m.%Y');
 
 		$blogbeitrag .= '
 		<div class="blog">';
@@ -34,7 +36,7 @@ if ($newsDataId > 0) {
 			}
 			
 				$blogbeitrag .= '
-				<h3>' . $datumneu->format('d.m.Y') . '</h3>';
+				<h3>' . $datumneu . '</h3>';
 				$blogbeitrag .= '
 				<h1>' . $data['title'] . '</h1>';
 				$blogbeitrag .= '
@@ -115,15 +117,15 @@ if ($newsDataId > 0) {
 				if (rex_addon::get('lazyload')->isAvailable()) {
 					$blogbeitrag .= '
 						<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-md-3 col-sm-6 gallery-item">
-							<a href="'.rex_url::base('media/'.$file.'').'" itemprop="contentUrl" data-size="'.$width.'x'.$height.'">
-							<img src="'.rex_url::base('index.php?rex_media_type=lazyimage&rex_media_file='.$file.'').'" width="100%" height="100%" itemprop="thumbnail" alt="'.$description.'" data-src="'.rex_url::base('index.php?rex_media_type=thumb&rex_media_file='.$file.'').'" class="b-lazy img-rounded img-responsive" /></a>
+							<a href="'.rex_url::base('index.php?rex_media_type=photoswipe&rex_media_file='.$file.'').'" itemprop="contentUrl" data-size="'.$width.'x'.$height.'">
+							<img src="'.rex_url::base('index.php?rex_media_type=lazyimage&rex_media_file='.$file.'').'" width="100%" height="100%" itemprop="photoswipe_thumbnail" alt="'.$description.'" data-src="'.rex_url::base('index.php?rex_media_type=photoswipe_thumb&rex_media_file='.$file.'').'" class="b-lazy img-rounded img-responsive" /></a>
 							<figcaption itemprop="caption description" class="gallery-caption">'.$description.'</figcaption>
 						</figure>';
 				} else {
 					$blogbeitrag .= '
 						<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-md-3 col-sm-6 gallery-item">
-							<a href="'.rex_url::base('media/'.$file.'').'" itemprop="contentUrl" data-size="'.$width.'x'.$height.'">
-							<img src="'.rex_url::base('index.php?rex_media_type=thumb&rex_media_file='.$file.'').'" itemprop="thumbnail" alt="'.$description.'" class="img-rounded img-responsive" /></a>
+							<a href="'.rex_url::base('index.php?rex_media_type=photoswipe&rex_media_file='.$file.'').'" itemprop="contentUrl" data-size="'.$width.'x'.$height.'">
+							<img src="'.rex_url::base('index.php?rex_media_type=photoswipe_thumb&rex_media_file='.$file.'').'" itemprop="photoswipe_thumbnail" alt="'.$description.'" class="img-rounded img-responsive" /></a>
 							<figcaption itemprop="caption description" class="gallery-caption">'.$description.'</figcaption>
 						</figure>';				}
 				
@@ -144,9 +146,9 @@ if ($newsDataId > 0) {
 			<div class="buttons">
 			<h3><small>Diesen Artikel teilen</small></h3>
 			<a class="btn btn-icon btn-fill btn-facebook" href="http://www.facebook.com/sharer/sharer.php?u=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><i class="fa fa-facebook"></i></a>
-			<a class="btn btn-icon btn-fill btn-twitter" href="https://twitter.com/intent/tweet?text=' . preg_replace ( '/[^a-z0-9_ßöäüÖÄÜ ]/i', '', $data['title'] ) . '&url=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '&via=TWITTER-NAME"><i class="fa fa-twitter"></i></a>
+			<a class="btn btn-icon btn-fill btn-twitter" href="https://twitter.com/intent/tweet?text=' . preg_replace ( '/[^a-z0-9_ßöäüÖÄÜ ]/i', '', $data['title'] ) . '&url=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '&via=greatif_media"><i class="fa fa-twitter"></i></a>
 			<a class="btn btn-icon btn-fill btn-google" href="https://plus.google.com/share?url=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><i class="fa fa-google"></i></a>
-			<a class="btn btn-icon btn-fill btn-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '&title=' . preg_replace ( '/[^a-z0-9_ßöäüÖÄÜ ]/i', '', $data['title'] ) . '&summary=LINKEDIN-NAME&source=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><i class="fa fa-linkedin"></i></a>
+			<a class="btn btn-icon btn-fill btn-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '&title=' . preg_replace ( '/[^a-z0-9_ßöäüÖÄÜ ]/i', '', $data['title'] ) . '&summary=greatif_media&source=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><i class="fa fa-linkedin"></i></a>
 			<a class="btn btn-icon btn-fill btn-xing" href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><i class="fa fa-xing"></i></a>
 			<a class="btn btn-icon btn-fill btn-pinterest" href="http://pinterest.com/pin/create/button/?url=http://' . $_SERVER['HTTP_HOST'] . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '&description=' . preg_replace ( '/[^a-z0-9_ßöäüÖÄÜ ]/i', '', $data['title'] ) . '&media=http://' . $_SERVER['HTTP_HOST'] . '/media/' . $data['headerimage'] . '"><i class="fa fa-pinterest"></i></a>
 			</div>
@@ -257,7 +259,7 @@ if ($newsDataId > 0) {
 
 		$yform->setActionField('db', array('rex_ycom_comment'));
 		// ggf. Kommentar auch an Admin senden:
-		// $yform->setActionField('email', array('absender@email.de', 'empfaenger@email.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
+		   $yform->setActionField('email', array('noreply@greatif.de', 'kontakt@greatif.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
 		$yform->setActionField('showtext', array("Kommentar wurde hinzugefügt.",'<div class="alert alert-success">',"</div>","1"));
 		$kommentare .= $yform->getForm();
 	}
@@ -402,7 +404,7 @@ if ($newsDataId > 0) {
 		$yform->setActionField('db', array('rex_ycom_comment'));
 		
 		// ggf. Kommentar auch an Admin senden:
-		// $yform->setActionField('email', array('absender@email.de', 'empfaenger@email.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
+		   $yform->setActionField('email', array('noreply@greatif.de', 'kontakt@greatif.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
 
 		$yform->setActionField('showtext', array("Ihr Kommentar wurde gespeichert und wird nach Überprüfung veröffentlicht.",'<div class="alert alert-success">',"</div>","1"));
 		$kommentare .= $yform->getForm();
@@ -420,7 +422,7 @@ if ($newsDataId > 0) {
         foreach ($datas as $data) {
 			if ($data['status'] == '1') {
 		
-				$datumneu = new DateTime($data['datestamp']);
+				$datumneu = rex_formatter::format($data['datestamp'],'strftime','%A, %d.%m.%Y');
 				$art_teaser = strip_tags(substr($data['contribution'], 3, 150));
 			$blog .= '
 			<div class="col-md-3 col-sm-6">';
@@ -430,18 +432,18 @@ if ($newsDataId > 0) {
 			if (rex_addon::get('lazyload')->isAvailable()) {
 				if (rex_addon::get('hyphenator')->isAvailable()) {		
 					$blog .= '
-					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu->format('d.m.Y') . '<br />' . $data['title'] . '</h1><img class="image b-lazy" src="index.php?rex_media_type=lazyimage&rex_media_file=' . $data['headerimage'] . '" width="100%" height="100%" alt="' . $data['title'] . '" data-src="index.php?rex_media_type=thumb&rex_media_file=' . $data['headerimage'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . hyphenator::hyphenate($art_teaser) . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
+					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu . '<br />' . $data['title'] . '</h1><img class="image b-lazy" src="index.php?rex_media_type=lazyimage&rex_media_file=' . $data['headerimage'] . '" width="100%" height="100%" alt="' . $data['title'] . '" data-src="index.php?rex_media_type=photoswipe_thumb&rex_media_file=' . $data['headerimage'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . hyphenator::hyphenate($art_teaser) . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
 				} else {
 					$blog .= '
-					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu->format('d.m.Y') . '<br />' . $data['title'] . '</h1><img class="image b-lazy" src="index.php?rex_media_type=lazyimage&rex_media_file=' . $data['headerimage'] . '" width="100%" height="100%" alt="' . $data['title'] . '" data-src="index.php?rex_media_type=thumb&rex_media_file=' . $data['headerimage'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . $art_teaser . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
+					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu . '<br />' . $data['title'] . '</h1><img class="image b-lazy" src="index.php?rex_media_type=lazyimage&rex_media_file=' . $data['headerimage'] . '" width="100%" height="100%" alt="' . $data['title'] . '" data-src="index.php?rex_media_type=photoswipe_thumb&rex_media_file=' . $data['headerimage'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . $art_teaser . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
 				}
 			} else {
 				if (rex_addon::get('hyphenator')->isAvailable()) {		
 					$blog .= '
-					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu->format('d.m.Y') . '<br />' . $data['title'] . '</h1><img class="image" src="index.php?rex_media_type=thumb&rex_media_file=' . $data['headerimage'] . '" alt="' . $data['title'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . hyphenator::hyphenate($art_teaser) . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
+					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu . '<br />' . $data['title'] . '</h1><img class="image" src="index.php?rex_media_type=photoswipe_thumb&rex_media_file=' . $data['headerimage'] . '" alt="' . $data['title'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . hyphenator::hyphenate($art_teaser) . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
 				} else {
 					$blog .= '
-					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu->format('d.m.Y') . '<br />' . $data['title'] . '</h1><img class="image" src="index.php?rex_media_type=thumb&rex_media_file=' . $data['headerimage'] . '" alt="' . $data['title'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . $art_teaser . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
+					<div class="head"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><h1>' . $datumneu . '<br />' . $data['title'] . '</h1><img class="image" src="index.php?rex_media_type=photoswipe_thumb&rex_media_file=' . $data['headerimage'] . '" alt="' . $data['title'] . '"></a></div><div class="equal-height-REX_SLICE_ID"><p>' . $art_teaser . '...</p></div><div class="text-center"><a href="' . rex_getUrl($newsArticleId, '', ['id' => $data['id']]) . '"><button class="btn btn-icon"><i class="ti-book"></i> Weiterlesen</button></a></div>';
 				}
 			}
 
