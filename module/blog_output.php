@@ -359,6 +359,8 @@ if ($newsDataId > 0) {
 
         $yform->setValueField('fieldset', array("kommentar", "Kommentar schreiben"));
         $yform->setValueField('html', array("pflichtangaben", "<b><i>* Pflichtangaben</i></b><br /><br />"));
+        
+        $yform->setValueField('ip', array("ip"));
 
         $yform->setValueField('html', array('opendiv','openDIV','<div id="customizeddiv" class="col-xs-12 col-sm-12 col-md-12" style="padding: 5px;">'));            
         $yform->setValueField('textarea', array("comment","#placeholder:Kommentar schreiben","Kommentar: *"));
@@ -404,7 +406,7 @@ if ($newsDataId > 0) {
         $yform->setActionField('db', array('rex_ycom_comment'));
         
         // ggf. Kommentar auch an Admin senden:
-        // $yform->setActionField('email', array('absender@email.de', 'empfaenger@email.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###comment###'));
+        // $yform->setActionField('email', array('absender@email.de', 'empfaenger@email.de', 'Neuer Kommentar von ###vorname### ###nachname###', '###ip### ###emailadresse### ###comment###'));
 
         $yform->setActionField('showtext', array("Ihr Kommentar wurde gespeichert und wird nach Überprüfung veröffentlicht.",'<div class="alert alert-success">',"</div>","1"));
         $kommentare .= $yform->getForm();
