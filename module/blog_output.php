@@ -171,7 +171,7 @@ if ($newsDataId > 0) {
 		$sql = rex_sql::factory();
 		$sql_query = '
 			SELECT
-				firstname, name, rex_ycom_user.status, pic, comment, rex_ycom_comment.status, stamp, vorname, nachname, webseite,
+				rex_ycom_user.id, firstname, name, pic, comment, user_id, rex_ycom_comment.status, stamp, vorname, nachname, emailadresse, webseite, blogartikel_id,
 				DATE_FORMAT(stamp, "%d.%m.%Y, %H:%i") as comment_date
 			FROM
 				rex_ycom_user, rex_ycom_comment
@@ -291,8 +291,20 @@ if ($newsDataId > 0) {
 	// Wenn kein YCom-User angemeldet ist (dann wird das volle Kommentar-Formular ausgegeben)
 	if ($ycom_user == '') {
 		
+		// Anzahl der Community-User
+		$sql2 = rex_sql::factory();
+		$sql_query2 = '
+			SELECT
+				COUNT(id) as anzahl
+			FROM
+				rex_ycom_user';
+
+		$sql2->setQuery($sql_query2);
+		
+	// Wenn YCom-User existieren, von denen Kommentare zu berücksichtigen sein könnten
+	if ($sql2->getValue('anzahl') > '0') {
+
 		// Zusammenstellen der Community-User- und Kommentar-Daten
-		// P: Wenn kein YCom-User vorhanden ist, dann werden keine Kommentare zusammengestellt
 		$sql = rex_sql::factory();
 		$sql_query = '
 			SELECT
@@ -311,15 +323,6 @@ if ($newsDataId > 0) {
 
 		$sql->setQuery($sql_query);
 
-		// Anzahl der Community-User
-		$sql2 = rex_sql::factory();
-		$sql_query2 = '
-			SELECT
-				COUNT(id) as anzahl
-			FROM
-				rex_ycom_user';
-
-		$sql2->setQuery($sql_query2);
 		
 		// Anzahl der Kommentare
 		$anzahl_user = $sql2->getValue('anzahl');
@@ -385,6 +388,65 @@ if ($newsDataId > 0) {
 				
 					$sql->next();
 				}
+
+	}
+
+	// Wenn keine YCom-User vorhanden sind, von denen Kommentare zu berücksichtigen sein könnten
+	if ($sql2->getValue('anzahl') == '0') {
+		// Zusammenstellen der Kommentar-Daten, wenn kein YCom-User existiert
+		$sql = rex_sql::factory();
+		$sql_query = '
+			SELECT
+				comment, article, user_id, status, stamp, vorname, nachname, emailadresse, webseite, blogartikel_id,
+				DATE_FORMAT(stamp, "%d.%m.%Y, %H:%i") as comment_date
+			FROM
+				rex_ycom_comment
+			WHERE
+				article = "'.$this->article_id.'"
+			AND
+				status = "1"
+			AND
+				blogartikel_id = "'.$data['id'].'"
+			ORDER BY
+				stamp DESC';
+
+		$sql->setQuery($sql_query);
+
+		// Kommentar-Block
+		$kommentare .= '
+		<div class="section section-nude-gray" id="comments">
+			<div class="media-area">
+				<h3 class="text-center">'.$sql->getRows().' Kommentare</h3>
+				<hr>';
+
+				$profile_pic = 'profile_default.png';
+
+				for ($i=0; $i<$sql->getRows(); $i++) {
+
+
+		                    $kommentare .= '
+		                    <div class="media">
+		                          <div class="avatar">
+		                                <img class="media-object" alt="'.$sql->getValue('vorname').' '.$sql->getValue('nachname').'" src="'.rex_url::base('index.php?rex_media_type=profile&rex_media_file='.$profile_pic.'').'">
+		                          </div>
+		                          <div class="media-body">';
+										if ($sql->getValue('webseite') != '') {
+											$kommentare .= '<a href="http://'.$sql->getValue('webseite').'" target="_blank"><h5 class="media-heading">'.$sql->getValue('vorname').' '.$sql->getValue('nachname').'</h5></a>';
+										} else {
+											$kommentare .= '<h5 class="media-heading">'.$sql->getValue('vorname').' '.$sql->getValue('nachname').'</h5>';
+										}
+		                                $kommentare .= '<div class="pull-right">
+		                                    <h6 class="text-muted">'.$sql->getValue('comment_date').'</h6>
+		                                </div>
+
+		                                <p>'.nl2br($sql->getValue('comment')).'</p>
+
+		                          </div>
+		                    </div> <!-- end media -->';
+
+					$sql->next();
+				}
+	}
 
 			$kommentare .= '
 			</div> <!-- end media-area -->
